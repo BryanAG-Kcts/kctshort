@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid'
 
 export async function POST (request : NextRequest) {
   const host = request.headers.get('host')
-  const protocol = request.headers.get('x-forwarded-proto')
   const { url } = await request.json()
   const id = nanoid(8)
 
@@ -18,7 +17,7 @@ export async function POST (request : NextRequest) {
     await deleteQuery
 
     return NextResponse.json({
-      urlShorted: `${protocol}://${host}/${id}`
+      urlShorted: `http://${host}/${id}`
     })
   } catch (error) {
     return NextResponse.error()
