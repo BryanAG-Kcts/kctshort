@@ -6,8 +6,12 @@ import './globals.css'
 import { ShortProvider } from '@/components/context/shortProvider'
 
 export const metadata: Metadata = {
-  title: 'kctsshort',
-  description: 'Acortador de urls, gratuito y sin espera'
+  title: 'Kctshort',
+  description: 'Acortador de urls, gratuito y sin espera',
+  authors: {
+    name: 'BryanAG-kcts',
+    url: 'https://portfolio-kcts.vercel.app'
+  }
 }
 
 export default function RootLayout ({
@@ -16,7 +20,7 @@ export default function RootLayout ({
   children: ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang='en'>
+    <html suppressHydrationWarning lang='es'>
       <body suppressHydrationWarning className={quicksand.className}>
         <ShortProvider>{children}</ShortProvider>
       </body>

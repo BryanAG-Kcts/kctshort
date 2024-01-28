@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@vercel/postgres'
 import { nanoid } from 'nanoid'
 
-export async function POST (request : NextResponse) {
+export async function POST (request : NextRequest) {
   const host = request.headers.get('host')
   const protocol = request.headers.get('x-forwarded-proto')
   const { url } = await request.json()
