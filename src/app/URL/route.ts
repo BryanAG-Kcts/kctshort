@@ -11,7 +11,11 @@ export async function POST (request : NextResponse) {
   const client = await db.connect()
 
   try {
-    await client.query('INSERT INTO short (Id, Redirect_url) VALUES ($1, $2)', [id, url])
+    const intertQuery = client.query('INSERT INTO short (Id, Redirect_url) VALUES ($1, $2)', [id, url])
+    const deleteQuery = client.query("DELETE FROM short WHERE Create_at < NOW() - interval '2 hours'")
+
+    await intertQuery
+    await deleteQuery
 
     return NextResponse.json({
       urlShorted: `${protocol}://${host}/${id}`
