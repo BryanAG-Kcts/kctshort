@@ -17,7 +17,7 @@ export async function POST (request : NextRequest) {
     await deleteQuery
 
     return NextResponse.json({
-      urlShorted: `http://${host}/${id}`
+      urlShorted: `https://${host}/${id}`
     })
   } catch (error) {
     return NextResponse.error()
