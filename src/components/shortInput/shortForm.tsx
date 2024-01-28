@@ -12,7 +12,7 @@ export const ShortInput = () => {
   }
 
   return (
-    <form onSubmit={getUrlInput} className='boxCol'>
+    <form onSubmit={getUrlInput} className='boxCol w-full'>
       <ShortButton />
     </form>
   )
