@@ -8,7 +8,7 @@ export const ShowOutput = () => {
 
   return (
     <>
-      {shortUrl && <output>{shortUrl}</output>}
+      {shortUrl && <output><a href={shortUrl} target='_blank' rel='noopener noreferrer'>{shortUrl}</a></output>}
     </>
   )
 }
