@@ -10,7 +10,7 @@ export const useShort = () : IShort => {
     const isUrl = isValidUrl(url)
     if (!isUrl) return
 
-    const urlQuery = await post('http://kctshort-fzzcu7fjb-bryanag-kcts-projects.vercel.app/URL', { url })
+    const urlQuery = await post('http://localhost:3000/URL', { url })
 
     if (!urlQuery.urlShorted) {
       setShortUrl('Algo ha fallado')
