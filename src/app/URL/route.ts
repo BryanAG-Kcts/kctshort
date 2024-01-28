@@ -7,8 +7,10 @@ export async function POST (request : NextResponse) {
   const protocol = request.headers.get('x-forwarded-proto')
   const { url } = await request.json()
   const id = nanoid(8)
+
+  const client = await db.connect()
+
   try {
-    const client = await db.connect()
     await client.query('INSERT INTO short (Id, Redirect_url) VALUES ($1, $2)', [id, url])
 
     return NextResponse.json({
@@ -16,5 +18,7 @@ export async function POST (request : NextResponse) {
     })
   } catch (error) {
     return NextResponse.error()
+  } finally {
+    client.release()
   }
 }
