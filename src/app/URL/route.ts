@@ -25,3 +25,9 @@ export async function POST (request : NextRequest) {
     client.release()
   }
 }
+
+export function GET () {
+  return NextResponse.json({
+    message: 'Hola mundo'
+  })
+}
