@@ -21,7 +21,7 @@ export async function GET (_ : NextRequest, { params } : params) {
     }
 
     const { redirect_url: redirectUrl } = rows[0]
-    return NextResponse.redirect(redirectUrl, 302)
+    return NextResponse.redirect(redirectUrl, 301)
   } catch (error) {
     return NextResponse.error()
   } finally {

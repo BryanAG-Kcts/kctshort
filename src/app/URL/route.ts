@@ -10,8 +10,8 @@ export async function POST (request : NextRequest) {
   const client = await db.connect()
 
   try {
+    const deleteQuery = client.query("DELETE FROM short WHERE Create_at < NOW() - interval '5 hours'")
     const intertQuery = client.query('INSERT INTO short (Id, Redirect_url) VALUES ($1, $2)', [id, url])
-    const deleteQuery = client.query("DELETE FROM short WHERE Create_at < NOW() - interval '2 hours'")
 
     await intertQuery
     await deleteQuery

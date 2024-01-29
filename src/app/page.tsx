@@ -6,6 +6,7 @@ export default function Home () {
       <h1 className='text-5xl md:text-6xl font-semibold text-white'>Kctshort</h1>
       <ShortInput />
       <ShowOutput />
+      <p className='text-white'>Las url caducan luego de 5 horas</p>
     </main>
   )
 }
